@@ -117,3 +117,8 @@ if ! shopt -oq posix; then
 fi
 export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init - bash)"
+eval "$(gh completion -s bash)"
+export PATH="$PATH:$HOME/local/bin"
+
