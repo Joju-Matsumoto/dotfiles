@@ -25,6 +25,10 @@ set wildmenu
 set wildmode=longest:full,full
 set ttyfast
 
+" color
+set background=dark
+colorscheme hybrid
+
 " autoload vim plug
 let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
 if empty(glob(data_dir . '/autoload/plug.vim'))
@@ -50,4 +54,7 @@ nmap gd (coc-definition)
 
 call plug#begin()
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'w0ng/vim-hybrid'
+Plug 'tpope/vim-endwise'
+Plug 'Townk/vim-autoclose'
 call plug#end()
