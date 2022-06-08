@@ -32,6 +32,22 @@ if empty(glob(data_dir . '/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
+" warning
+let g:coc_disable_startup_warning = 1
+
+" autocomplete by tab
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~ '\s'
+endfunction
+inoremap <silent><expr> <Tab>
+  \ pumvisible() ? "\<C-n>" :
+  \ <SID>check_back_space() ? "\<Tab>" :
+  \ coc#refresh()
+
+" code jump
+nmap gd (coc-definition)
+
 call plug#begin()
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()

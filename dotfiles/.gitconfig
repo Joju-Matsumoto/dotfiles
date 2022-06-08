@@ -1,0 +1,9 @@
+[color]
+  ui = true
+  diff = true
+[user]
+  email = avasoldier2@gmail.com
+  name = jj_
+[include]
+  path = .gitconfig.local
+
