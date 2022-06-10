@@ -3,5 +3,7 @@
   diff = true
 [user]
   name = jj_
+[init]
+  defaultBranch = main
 [include]
   path = ~/.gitconfig.local
