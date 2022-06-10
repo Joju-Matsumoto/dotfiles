@@ -1,6 +1,20 @@
 #!/bin/bash
 
-DOTPATH=~/.dotfiles/dotfiles
+DOTPATH=~/.dotfiles
+
+if has "git"; then
+  git clone --recursive "https://github.com/Joju-Matsumoto/dotfiles.git" "$DOTPATH"
+elif has "curl" || has "wget"; then
+  tarball="https://codeload.github.com/Joju-Matsumoto/dotfiles/archive/main.tar.gz"
+
+  if has "curl"; then
+    curl -L "$tarball"
+  elif has "wget"; then
+    wget -O - "$tarball"
+  fi | tar zxv
+else
+  die "curl or wget required."
+fi
 
 cd $DOTPATH
 if [ $? -ne 0 ]; then
