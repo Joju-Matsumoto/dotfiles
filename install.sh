@@ -2,14 +2,14 @@
 
 DOTPATH=~/.dotfiles
 
-if has "git"; then
+if type "git"; then
   git clone --recursive "https://github.com/Joju-Matsumoto/dotfiles.git" "$DOTPATH"
-elif has "curl" || has "wget"; then
+elif type "curl" || type "wget"; then
   tarball="https://codeload.github.com/Joju-Matsumoto/dotfiles/archive/main.tar.gz"
 
-  if has "curl"; then
+  if type "curl"; then
     curl -L "$tarball"
-  elif has "wget"; then
+  elif type "wget"; then
     wget -O - "$tarball"
   fi | tar zxv
 else
