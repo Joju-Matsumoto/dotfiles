@@ -45,10 +45,13 @@ alias gc='git commit'
 # PATHs
 ##########
 
-export VOLTA_HOME="$HOME/.volta"
-export PATH="$VOLTA_HOME/bin:$PATH"
+eval "$(anyenv init -)"
+
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init - zsh)"
+
+export VOLTA_HOME="$HOME/.volta"
+export PATH="$VOLTA_HOME/bin:$PATH"
 eval "$(gh completion -s zsh)"
 export PATH="$PATH:$HOME/local/bin"
 
