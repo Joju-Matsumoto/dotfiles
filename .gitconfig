@@ -3,5 +3,7 @@
   diff = true
 [user]
   name = jj_
+[core]
+  editor = vim
 [include]
   path = ~/.gitconfig.local
