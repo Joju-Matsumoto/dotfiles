@@ -42,6 +42,12 @@ alias gf='git fetch'
 alias gc='git commit'
 
 ##########
+# ENV
+##########
+
+export EDITOR="vim"
+
+##########
 # PATHs
 ##########
 
