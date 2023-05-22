@@ -3,6 +3,8 @@
   diff = true
 [user]
   name = jj_
+[core]
+  editor = vim
 [init]
   defaultBranch = main
 [include]

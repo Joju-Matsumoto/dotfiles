@@ -46,6 +46,12 @@ alias dco='docker compose'
 alias k='kubectl'
 
 ##########
+# ENV
+##########
+
+export EDITOR="vim"
+
+##########
 # PATHs
 ##########
 #
