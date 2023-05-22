@@ -122,3 +122,4 @@ eval "$(rbenv init - bash)"
 eval "$(gh completion -s bash)"
 export PATH="$PATH:$HOME/local/bin"
 
+. "$HOME/.cargo/env"

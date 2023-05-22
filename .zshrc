@@ -41,10 +41,15 @@ alias gco='git checkout'
 alias gf='git fetch'
 alias gc='git commit'
 
+alias dco='docker compose'
+
+alias k='kubectl'
+
 ##########
 # PATHs
 ##########
-
+#
+export PATH="$HOME/.anyenv/bin:$PATH"
 eval "$(anyenv init -)"
 
 export PATH="$HOME/.rbenv/bin:$PATH"
@@ -54,4 +59,12 @@ export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"
 eval "$(gh completion -s zsh)"
 export PATH="$PATH:$HOME/local/bin"
+
+export GOPATH=$(go env GOPATH)
+export PATH="$PATH:$(go env GOPATH)/bin"
+
+source <(kubectl completion zsh)
+
+source ~/.zshrc.local
+
 
