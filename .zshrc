@@ -40,10 +40,14 @@ alias gst='git status'
 alias gco='git checkout'
 alias gf='git fetch'
 alias gc='git commit'
+alias gl='git log --oneline'
 
 alias dco='docker compose'
 
 alias k='kubectl'
+alias bb='kubectl run busybox --image=busybox:latest --rm -it --restart Never --command --'
+
+alias c="cargo"
 
 ##########
 # ENV
@@ -61,6 +65,11 @@ eval "$(anyenv init -)"
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init - zsh)"
 
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+
 export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"
 eval "$(gh completion -s zsh)"
@@ -73,4 +82,14 @@ source <(kubectl completion zsh)
 
 source ~/.zshrc.local
 
+# pnpm
+export PNPM_HOME="$HOME/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
 
+# vscode-workspace
+alias vw="vscode-workspace"
+source <(vscode-workspace completion zsh)
