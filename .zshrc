@@ -61,11 +61,11 @@ export EDITOR="vim"
 ##########
 #
 
-# export PATH=$(go env GOPATH)/bin:$PATH
+# go
+export PATH=$PATH:/usr/local/go/bin
 
+# kubectl
 source <(kubectl completion zsh)
-
-source ~/.zshrc.local
 
 # pnpm
 export PNPM_HOME="$HOME/.local/share/pnpm"
@@ -73,13 +73,16 @@ case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
-# pnpm end
 
 # uv
 . "$HOME/.local/bin/env"
 eval "$(uv generate-shell-completion zsh)"
-# uv end
 
 # vscode-workspace
 alias vw="vscode-workspace"
 source <(vscode-workspace completion zsh)
+
+########################
+# include .zshrc.local
+########################
+source ~/.zshrc.local
