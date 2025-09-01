@@ -8,6 +8,7 @@ autoload -Uz colors && colors
 export LSCOLORS=cxfxcxdxbxegedabagacad
 alias ll='ls -la'
 alias ls='ls --color=auto'
+alias jd='diff <(jq -S . $1) <(jq -S . $2)'
 
 # auto complete
 autoload -Uz compinit && compinit
@@ -59,24 +60,8 @@ export EDITOR="vim"
 # PATHs
 ##########
 #
-export PATH="$HOME/.anyenv/bin:$PATH"
-eval "$(anyenv init -)"
 
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init - zsh)"
-
-export PYENV_ROOT="$HOME/.pyenv"
-command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
-
-export VOLTA_HOME="$HOME/.volta"
-export PATH="$VOLTA_HOME/bin:$PATH"
-eval "$(gh completion -s zsh)"
-export PATH="$PATH:$HOME/local/bin"
-
-export GOPATH=$(go env GOPATH)
-export PATH="$PATH:$(go env GOPATH)/bin"
+# export PATH=$(go env GOPATH)/bin:$PATH
 
 source <(kubectl completion zsh)
 
@@ -89,6 +74,11 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
+
+# uv
+. "$HOME/.local/bin/env"
+eval "$(uv generate-shell-completion zsh)"
+# uv end
 
 # vscode-workspace
 alias vw="vscode-workspace"
